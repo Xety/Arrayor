@@ -9,5 +9,40 @@ A simple class that provide some functions to manipulate arrays.
 * :package: [Composer](https://getcomposer.org)
 * ![PHP](https://img.shields.io/badge/PHP->=5.4-44CB12.svg?style=flat-square)
 
+### Functions
+* `Arrayor::camelizeIndex($array, $delimiter = '_')`
+    * Camelize all index keys in the first level.
+
+``` php
+
+$array = [
+    'Index key' => 1,
+    'key_index' => 2
+];
+
+$result = Arrayor::camelizeIndex($array);
+
+$result = [
+    'indexKey' => 1,
+    'keyIndex' => 2
+];
+```
+
+* `Arrayor::implodeRecursive($array = [], $glue = ' : ', $separator = ' | ')`
+    * Implode an array into a string by both key and value.
+
+``` php
+
+$array = [
+    'key-index' => 1,
+    'key index' => 'value'
+];
+
+$string = Arrayor::implodeRecursive($array);
+
+$string = 'key-index : 1 | key index : value';
+```
+
+
 ### Contribute
 [Follow this guide to contribute](https://github.com/Xety/Arrayor/blob/master/CONTRIBUTING.md)
